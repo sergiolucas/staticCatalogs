@@ -7,7 +7,7 @@ async function main() {
     for (let i = 0; i < ids.length; i++) {
         const id = ids[i];
         const meta = await tmdb.getMeta(id.id, id.type);
-        meta['type'] = id.type;
+        meta['type'] = "other";
         data.push(meta);
     }
     const catalog = {
