@@ -4,7 +4,6 @@ const TMDB_API_KEY = process.env.TMDB_API_KEY;
 if (!TMDB_API_KEY) {
     throw new Error('TMDB_API_KEY is not defined in environment variables');
 }
-const genreMap = require('./genres');
 
 async function getMeta(id, type) {
     let url;
@@ -33,10 +32,6 @@ async function getMeta(id, type) {
         const detailsRes = await fetch(detailsUrl);
         detailsData = await detailsRes.json();
     }
-
-    const genres = detailsData.genres ?
-        detailsData.genres.map(genre => genreMap[genre.id] || genre.name).join('#') :
-        '';
 
     let lastEpisodeDate = null;
     if (type === 'series' && detailsData.last_episode_to_air) {
@@ -77,7 +72,6 @@ async function getMeta(id, type) {
         description: result.overview,
         releaseDate: result.release_date || result.first_air_date || null,
         lastEpisodeDate: lastEpisodeDate,
-        genres: genres,
         runtime: type === 'movie' ? detailsData.runtime : null,
         vote_average: result.vote_average || 0,
         cast,
