@@ -9,7 +9,10 @@ async function main() {
         const meta = await tmdb.getMeta(id.id, id.type);
         data.push(meta);
     }
-    fs.writeFileSync('catalog/other/noa.json', JSON.stringify(data));
+    const catalog = {
+        "metas": data
+    };
+    fs.writeFileSync('catalog/other/noa.json', JSON.stringify(catalog));
 }
 
 main();
