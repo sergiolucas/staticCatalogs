@@ -1,0 +1,16 @@
+{
+    "id": "com.sl.staticCatalog",
+    "version": "1.0.0",
+    "name": "Catálogos Estáticos",
+    "description": "Contenidos desde JSON estático",
+    "resources": ["catalog"],
+    "types": ["movie", "series"],
+    "catalogs": [
+      {
+        "type": "other",
+        "id": "noa",
+        "name": "Noa"
+      }
+    ]
+  }
+  

@@ -1,0 +1,15 @@
+{
+    "metas": [
+        {
+            "id": "pelicula-1",
+            "type": "movie",
+            "name": "Mi Película Estática",
+            "poster": "https://example.com/poster.jpg",
+            "description": "Una gran historia.",
+            "genres": [
+                "Drama"
+            ],
+            "releaseInfo": "2024"
+        }
+    ]
+}
